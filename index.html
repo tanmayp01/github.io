@@ -37,8 +37,9 @@
   --screen: #f5f6fa;
   --sun: #f5a700;
   --mint: #0fae7c;
-  --k-bg: #0b0c0c;
-  --k-fg: #f3f1ea;
+  --k-bg: #f6f2e9;
+  --k-fg: #111216;
+  --k-label: #a35f00;
   --k1: #5b74ff; --k2: #ff6a45; --k3: #ffc43d; --k4: #2fd39a; --k5: #ff5c8a; --k6: #a68bff;
   --screen-ink: #0d1430;
 
@@ -58,7 +59,7 @@
     --cobalt: #7f8dff; --signal: #ff8a62; --line: rgba(231, 234, 246, .12);
     --grid: rgba(127, 141, 255, .06); --card: #10172d; --on-cobalt: #090d1c;
     --screen: #dde1ee; --screen-ink: #0b1028;
-    --sun: #ffc43d; --mint: #2fd39a; --k-bg: #121626;
+    --sun: #ffc43d; --mint: #2fd39a; --k-bg: #0b0c0c; --k-fg: #f3f1ea; --k-label: #ffc43d;
     color-scheme: dark;
   }
 }
@@ -67,7 +68,7 @@
   --cobalt: #7f8dff; --signal: #ff8a62; --line: rgba(231, 234, 246, .12);
   --grid: rgba(127, 141, 255, .06); --card: #10172d; --on-cobalt: #090d1c;
   --screen: #dde1ee; --screen-ink: #0b1028;
-  --sun: #ffc43d; --mint: #2fd39a; --k-bg: #121626;
+  --sun: #ffc43d; --mint: #2fd39a; --k-bg: #0b0c0c; --k-fg: #f3f1ea; --k-label: #ffc43d;
   color-scheme: dark;
 }
 
@@ -384,7 +385,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor .sta
 
 /* Klytos section, always its own dark world */
 .klytos { background: var(--k-bg); color: var(--k-fg); overflow: clip; }
-.klytos .head .mono { color: var(--k3); }
+.klytos .head .mono { color: var(--k-label); }
 .klytos .head p { color: color-mix(in srgb, var(--k-fg) 72%, var(--k-bg)); }
 .klytos .head h2 em { color: var(--k2); }
 .klytos::before { background-image: linear-gradient(color-mix(in srgb, var(--k-fg) 5%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--k-fg) 5%, transparent) 1px, transparent 1px); }
@@ -444,7 +445,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor .sta
 .d2 { animation-delay: -.6s; } .d3 { animation-delay: -1.2s; } .d4 { animation-delay: -1.8s; }
 
 /* process stepper */
-.sub { margin: clamp(64px, 8vw, 110px) 0 26px; color: var(--k3); }
+.sub { margin: clamp(64px, 8vw, 110px) 0 26px; color: var(--k-label); }
 .process { list-style: none; margin: 0; padding: 30px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 22px; position: relative; }
 .process::before, .process::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: color-mix(in srgb, var(--k-fg) 15%, transparent); }
 .process::after { background: linear-gradient(90deg, var(--k1), var(--k2), var(--k3), var(--k4), var(--k5)); transform-origin: left; transform: scaleX(var(--pp, 1)); }
@@ -453,7 +454,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor .sta
 .process li.on::before { background: var(--k2); border-color: var(--k2); transform: scale(1.25); }
 .process.js li { --op: .35; transform: translateY(10px); }
 .process.js li.on { --op: 1; transform: none; }
-.process .pn { color: var(--k3); }
+.process .pn { color: var(--k-label); }
 .process h4 { margin: 0; font: 700 1.15rem/1.1 var(--f-display); font-variation-settings: "wdth" 82; letter-spacing: -.02em; }
 .process p { color: color-mix(in srgb, var(--k-fg) 68%, var(--k-bg)); font-size: .93rem; line-height: 1.45; }
 
@@ -593,7 +594,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor .sta
 .mnav-in { display: grid; gap: 4px; }
 .mnav a { display: flex; align-items: baseline; gap: 14px; text-decoration: none; font: 800 clamp(1.7rem, 8.4vw, 3rem)/1.1 var(--f-display); font-variation-settings: "wdth" 76; text-transform: uppercase; letter-spacing: -.03em;
   transform: translateY(40px); opacity: 0; transition: transform .7s var(--ease-out), opacity .5s, color .3s; transition-delay: calc(var(--k) * 60ms); }
-.mnav a .mono { color: var(--k3); font-size: .72rem; }
+.mnav a .mono { color: var(--k-label); font-size: .72rem; }
 .mnav a:nth-child(1):active, .mnav a:nth-child(1):hover { color: var(--k1); }
 .mnav a:nth-child(2):active, .mnav a:nth-child(2):hover { color: var(--k2); }
 .mnav a:nth-child(3):active, .mnav a:nth-child(3):hover { color: var(--k3); }
@@ -728,7 +729,7 @@ section[id] { scroll-margin-top: 64px; }
 .mark-ic { width: 30px; height: 30px; flex: none; transition: transform .6s var(--ease-out); }
 .mark:hover .mark-ic { transform: rotate(-12deg) scale(1.08); }
 .mark .mk-last { color: var(--cobalt); }
-.menu-open .top .mark .mk-last { color: var(--k3); }
+.menu-open .top .mark .mk-last { color: var(--k-label); }
 
 /* stats: a coral band */
 .stats { background: var(--band-coral); color: var(--band-ink); border-color: transparent; }
@@ -810,6 +811,10 @@ section[id] { scroll-margin-top: 64px; }
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 @media (max-width: 760px) { .epoch { display: none; } .theme-btn { margin-left: auto; width: 38px; height: 38px; } }
 @media (min-width: 761px) { .theme-btn { margin-left: 4px; } }
+
+/* Klytos in light mode: a sunlit studio */
+.svc-cream { box-shadow: inset 0 0 0 1.5px rgba(11, 12, 12, .12); }
+.klytos .process li.on::before { box-shadow: 0 0 0 5px color-mix(in srgb, var(--k2) 22%, transparent); }
 </style>
 </head>
 <body>
@@ -991,7 +996,7 @@ section[id] { scroll-margin-top: 64px; }
             <p>Get found on Google and in AI tools like ChatGPT and Gemini.</p>
             <div class="tags"><span>Search</span><span>AI answers</span></div>
           </article>
-          <article class="svc" style="--sc:var(--k-fg)">
+          <article class="svc svc-cream" style="--sc:#efe9dc">
             <svg viewBox="0 0 120 90" aria-hidden="true"><circle class="a-spin dash" cx="60" cy="45" r="32"/><path class="fl" d="M52 31l22 14-22 14z"/></svg>
             <h3>On demand</h3>
             <p>Videography, reel editing and social media management when you need them.</p>
