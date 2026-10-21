@@ -133,6 +133,7 @@ p { margin: 0; }
 @keyframes rise { from { transform: translateY(105%) rotate(6deg); } }
 .lede { font-size: clamp(1.1rem, 1.6vw, 1.32rem); line-height: 1.5; max-width: 34ch; }
 .lede .typed { color: var(--cobalt); font-weight: 600; white-space: nowrap; }
+.lede .typed-line { display: block; height: 1.5em; white-space: nowrap; overflow: hidden; }
 .lede .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--signal); vertical-align: -.15em; margin-left: 2px; animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -867,7 +868,7 @@ section[id] { scroll-margin-top: 64px; }
           <span class="row" aria-hidden="true" data-split>Tanmay</span>
           <span class="row" aria-hidden="true" data-split>Pandey</span>
         </h1>
-        <p class="lede">ML models by day, AI automations by night, eternally in a training loop. I build <span class="typed" id="typed">AI automations</span><span class="caret" aria-hidden="true"></span></p>
+        <p class="lede">ML models by day, AI automations by night, eternally in a training loop. <span class="typed-line">I build <span class="typed" id="typed">AI automations</span><span class="caret" aria-hidden="true"></span></span></p>
         <div class="ctas">
           <a class="btn" href="#klytos">See the Klytos work <span class="arr" aria-hidden="true">↗</span></a>
           <a class="btn ghost" href="#contact">Get in touch</a>
